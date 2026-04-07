@@ -3,11 +3,11 @@ import Foundation
 // MARK: - Weather Service
 
 protocol WeatherServiceProtocol {
-    func fetchCurrentWeather(for city: String) async -> WeatherSnapshot
+    func fetchCurrentWeather(for city: String) async throws -> WeatherSnapshot
 }
 
 struct MockWeatherService: WeatherServiceProtocol {
-    func fetchCurrentWeather(for city: String) async -> WeatherSnapshot {
+    func fetchCurrentWeather(for city: String) async throws -> WeatherSnapshot {
         let samples: [WeatherSnapshot] = [
             WeatherSnapshot(cityName: city, temperatureCelsius: 29, condition: .sunny, humidity: 42, windSpeedKPH: 8.5),
             WeatherSnapshot(cityName: city, temperatureCelsius: 21, condition: .cloudy, humidity: 58, windSpeedKPH: 11.0),
