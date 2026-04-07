@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1410"
+   version = "1.3">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "22A3340B2F84BEC500C4AE5C"
+               BuildableName = "ClimaBeats.app"
+               BlueprintName = "ClimaBeats"
+               ReferencedContainer = "container:ClimaBeats.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "22A3340B2F84BEC500C4AE5C"
+            BuildableName = "ClimaBeats.app"
+            BlueprintName = "ClimaBeats"
+            ReferencedContainer = "container:ClimaBeats.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OPENWEATHER_API_KEY &#10;Requirements:&#10;- Use OpenWeatherMap API&#10;- Create WeatherModel (Codable)&#10;- Create WeatherService class for API calls&#10;- Implement JSON parsing properly&#10;- Handle errors (invalid response, network issues)&#10;&#10;ViewModel:&#10;- Create WeatherViewModel using ObservableObject&#10;- Use @Published properties&#10;- Fetch weather data and expose to UI&#10;&#10;UI:&#10;- Update HomeView to display:&#10;  - Temperature&#10;  - Weather condition&#10;  - City name&#10;Note: UI should professional,industry standard and eye shooting. &#10;&#10;Constraints:&#10;- Follow MVVM strictly&#10;- Use async/await&#10;- Clean separation of concerns&#10;&#10;Make code production-quality and Guide me if anything manually need to do.&#10;after implementing this phase you need to make sure everything works fine and doesn&apos;t break any existing functionalities. note that our xcode version is: Version 14.1 beta (14B5024h). So code that is able to run in this xcode. "
+            value = "8215026a6bfc34d7860e9a5bf67f137f"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "22A3340B2F84BEC500C4AE5C"
+            BuildableName = "ClimaBeats.app"
+            BlueprintName = "ClimaBeats"
+            ReferencedContainer = "container:ClimaBeats.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

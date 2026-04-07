@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct RootView: View {
-    @StateObject private var viewModel = HomeViewModel(
-        weatherService: MockWeatherService(),
+    @StateObject private var viewModel = WeatherViewModel(
+        weatherService: RootView.makeWeatherService(),
         recommendationService: MockMusicRecommendationService()
     )
 
@@ -14,8 +14,21 @@ struct RootView: View {
     }
 }
 
+private extension RootView {
+    static func makeWeatherService() -> WeatherServiceProtocol {
+        let apiKey = AppConfiguration.openWeatherAPIKey.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        // Keep the app functional without manual setup by falling back to mock data.
+        if apiKey.isEmpty {
+            return MockWeatherService()
+        }
+
+        return WeatherService(apiKey: apiKey)
+    }
+}
+
 struct HomeView: View {
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var viewModel: WeatherViewModel
     @State private var isContentVisible = false
 
     var body: some View {
@@ -28,6 +41,11 @@ struct HomeView: View {
 
                     if let weather = viewModel.weather {
                         weatherCard(weather)
+                            .transition(.move(edge: .bottom).combined(with: .opacity))
+                    }
+
+                    if let errorMessage = viewModel.errorMessage {
+                        errorCard(errorMessage)
                             .transition(.move(edge: .bottom).combined(with: .opacity))
                     }
 
@@ -54,19 +72,27 @@ struct HomeView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Refresh") {
                     Task {
-                        await viewModel.load(city: "New York")
+                        await viewModel.fetchWeather(for: "Khulna")
                     }
                 }
             }
         }
         .task {
             if viewModel.weather == nil {
-                await viewModel.load(city: "New York")
+                await viewModel.fetchWeather(for: "Khulna")
             }
 
             withAnimation(AppAnimation.smoothSpring) {
                 isContentVisible = true
             }
+        }
+    }
+
+    private func errorCard(_ message: String) -> some View {
+        InfoCard(title: "Weather Status") {
+            Text(message)
+                .font(AppTypography.body)
+                .foregroundColor(AppColors.secondaryText)
         }
     }
 
