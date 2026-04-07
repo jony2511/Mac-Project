@@ -2,8 +2,10 @@ import SwiftUI
 
 struct InfoCard<Content: View>: View {
     let title: String
-    @ViewBuilder let content: Content
 
+
+    @ViewBuilder let content: Content
+//view of the card that shows the weather info, error message, and recommendation
     var body: some View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             Text(title)

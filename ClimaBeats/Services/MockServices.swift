@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - Weather Service
-
+//weather serivce protocol and mock implementation for testing and development without hitting real APIs
 protocol WeatherServiceProtocol {
     func fetchCurrentWeather(for city: String) async throws -> WeatherSnapshot
 }
